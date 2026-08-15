@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Rabia'ya ❤️</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,9 +15,6 @@
 }
 
 body {
-    <audio id="music" loop>
-    <source src="muzik.mp3" type="audio/mpeg">
-</audio>
     min-height: 100vh;
     font-family: "Segoe UI", sans-serif;
     background: linear-gradient(135deg, #fff1f5, #ffe4ec, #fff7f0);
@@ -36,7 +35,7 @@ body {
     width: 100%;
     max-width: 500px;
     padding: 45px 25px;
-    background: rgba(255,255,255,0.72);
+    background: rgba(255,255,255,0.75);
     border-radius: 30px;
     box-shadow: 0 15px 50px rgba(160, 70, 100, 0.15);
     backdrop-filter: blur(10px);
@@ -83,6 +82,10 @@ button:hover {
     transform: scale(1.05);
 }
 
+button:active {
+    transform: scale(0.97);
+}
+
 #message {
     display: none;
     margin-top: 30px;
@@ -101,6 +104,36 @@ button:hover {
     font-weight: bold;
 }
 
+/* Müzik kontrolü */
+
+.music-control {
+    display: none;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.music-button {
+    padding: 10px 18px;
+    font-size: 14px;
+    background: rgba(196, 71, 112, 0.12);
+    color: #b43d65;
+    box-shadow: none;
+}
+
+.music-button:hover {
+    background: rgba(196, 71, 112, 0.2);
+}
+
+.music-text {
+    font-size: 14px;
+    color: #9d536c;
+}
+
+/* Uçuşan kalpler */
+
 .floating-heart {
     position: fixed;
     bottom: -30px;
@@ -109,39 +142,62 @@ button:hover {
     pointer-events: none;
 }
 
+/* Animasyonlar */
+
 @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
 }
 
 @keyframes floatUp {
+
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
     }
+
     10% {
         opacity: 1;
     }
+
     100% {
         transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
     }
+
 }
 
 @keyframes appear {
+
     from {
         opacity: 0;
         transform: translateY(25px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
+/* Telefon */
+
 @media (max-width: 480px) {
+
     h1 {
         font-size: 34px;
+    }
+
+    .heart {
+        font-size: 55px;
     }
 
     .card {
@@ -151,61 +207,114 @@ button:hover {
     .subtitle {
         font-size: 16px;
     }
+
+    #message p {
+        font-size: 16px;
+    }
+
 }
+
 </style>
+
 </head>
 
 <body>
+
+<!-- MÜZİK -->
+
+<audio id="music" loop preload="auto">
+    <source src="müzik.mp3" type="audio/mpeg">
+</audio>
+
 
 <div class="container">
 
     <div class="card">
 
-        <div class="heart">❤️</div>
+        <div class="heart">
+            ❤️
+        </div>
 
-        <h1>İyi ki Doğdun Rabiş!</h1>
+
+        <h1>
+            İyi ki Doğdun Rabia!
+        </h1>
+
 
         <div class="age">
-            🎂 21 yaşındasın! 🥳🎂
+            🎂 21 yaşındasın! 🎂
         </div>
+
 
         <p class="subtitle">
             Bugün senin günün...<br>
             Ve ben bu günü biraz daha özel yapmak istedim. 🥰
         </p>
 
+
         <button onclick="showMessage()">
             🎁 Sana bir sürprizim var
         </button>
 
+
+        <!-- MESAJ -->
+
         <div id="message">
 
             <p>
-                İyi ki doğdun balımmm. ❤️
+
+                İyi ki doğdun güzelim. ❤️
+
                 <br><br>
 
                 Hayatıma girdiğin için gerçekten çok mutluyum.
+                Seninle geçirdiğim her anın benim için ayrı bir yeri var.
                 Umarım yeni yaşında yüzünden gülümseme hiç eksik olmaz
                 ve bütün güzel şeyler seni bulur.
+
                 <br><br>
 
                 Bugün 21 oldun...
                 Ama benim için önemli olan sadece yaşın değil,
                 hayatımda olduğun her gün. ❤️
+
                 <br><br>
 
                 Yeni yaşında yanında olmayı,
                 birlikte daha çok güzel anı biriktirmeyi
                 ve seni daha çok güldürmeyi diliyorum.
+
                 <br><br>
 
-                İyi ki varsın canım ❤️
+                İyi ki varsın Rabia. 🥹❤️
+
                 <br>
+
                 İyi ki doğdun.
+
             </p>
 
+
             <div class="signature">
-                🥳
+                Seni çok seviyorum ❤️
+            </div>
+
+
+            <!-- MÜZİK KONTROLÜ -->
+
+            <div class="music-control" id="musicControl">
+
+                <button
+                    class="music-button"
+                    onclick="toggleMusic()"
+                    id="musicButton">
+                    🔊 Müziği Kapat
+                </button>
+
+                <span class="music-text">
+                    🎵 İyi ki Doğdun
+                </span>
+
             </div>
 
         </div>
@@ -214,49 +323,128 @@ button:hover {
 
 </div>
 
+
 <script>
+
+/* SÜRPRİZ BUTONU */
 
 function showMessage() {
 
+    // Mesajı göster
     document.getElementById("message").style.display = "block";
 
+    // Müzik kontrolünü göster
+    document.getElementById("musicControl").style.display = "flex";
+
+    // Müziği başlat
+    const music = document.getElementById("music");
+
+    music.volume = 0.7;
+
+    music.play().catch(function(error) {
+
+        console.log("Müzik başlatılamadı:", error);
+
+    });
+
+    // Kalpleri oluştur
     createHearts();
 
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth"
-    });
+    // Sayfayı aşağı kaydır
+    setTimeout(function() {
+
+        window.scrollTo({
+
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+
+        });
+
+    }, 300);
+
 }
+
+
+/* MÜZİĞİ AÇ / KAPAT */
+
+function toggleMusic() {
+
+    const music = document.getElementById("music");
+
+    const button = document.getElementById("musicButton");
+
+
+    if (music.paused) {
+
+        music.play();
+
+        button.innerHTML = "🔊 Müziği Kapat";
+
+    } else {
+
+        music.pause();
+
+        button.innerHTML = "🔇 Müziği Aç";
+
+    }
+
+}
+
+
+/* KALPLER */
 
 function createHearts() {
 
-    for(let i = 0; i < 25; i++) {
+    for (let i = 0; i < 30; i++) {
 
-        setTimeout(() => {
+        setTimeout(function() {
 
             const heart = document.createElement("div");
 
             heart.className = "floating-heart";
 
-            const hearts = ["❤️","💕","💗","💖","💘","🌸"];
+
+            const hearts = [
+                "❤️",
+                "💕",
+                "💗",
+                "💖",
+                "💘",
+                "🌸",
+                "💞"
+            ];
+
 
             heart.innerHTML =
-                hearts[Math.floor(Math.random() * hearts.length)];
+                hearts[
+                    Math.floor(
+                        Math.random() * hearts.length
+                    )
+                ];
+
 
             heart.style.left =
                 Math.random() * 100 + "vw";
 
+
             heart.style.animationDuration =
                 (3 + Math.random() * 3) + "s";
 
+
             document.body.appendChild(heart);
 
-            setTimeout(() => {
+
+            setTimeout(function() {
+
                 heart.remove();
+
             }, 6000);
 
+
         }, i * 120);
+
     }
+
 }
 
 </script>
