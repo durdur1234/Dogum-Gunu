@@ -112,7 +112,6 @@ button:active {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    flex-wrap: wrap;
 }
 
 .music-button {
@@ -223,7 +222,7 @@ button:active {
 <!-- MÜZİK -->
 
 <audio id="music" loop preload="auto">
-    <source src="müzik.mp3" type="audio/mpeg">
+    <source src="muzik.mp3" type="audio/mpeg">
 </audio>
 
 
@@ -330,13 +329,18 @@ button:active {
 
 function showMessage() {
 
-    // Mesajı göster
+    /* Mesajı göster */
+
     document.getElementById("message").style.display = "block";
 
-    // Müzik kontrolünü göster
+
+    /* Müzik kontrolünü göster */
+
     document.getElementById("musicControl").style.display = "flex";
 
-    // Müziği başlat
+
+    /* Müziği başlat */
+
     const music = document.getElementById("music");
 
     music.volume = 0.7;
@@ -347,15 +351,20 @@ function showMessage() {
 
     });
 
-    // Kalpleri oluştur
+
+    /* Kalpleri oluştur */
+
     createHearts();
 
-    // Sayfayı aşağı kaydır
+
+    /* Sayfayı aşağı kaydır */
+
     setTimeout(function() {
 
         window.scrollTo({
 
             top: document.body.scrollHeight,
+
             behavior: "smooth"
 
         });
@@ -399,12 +408,16 @@ function createHearts() {
 
         setTimeout(function() {
 
-            const heart = document.createElement("div");
+            const heart =
+                document.createElement("div");
 
-            heart.className = "floating-heart";
+
+            heart.className =
+                "floating-heart";
 
 
             const hearts = [
+
                 "❤️",
                 "💕",
                 "💗",
@@ -412,6 +425,7 @@ function createHearts() {
                 "💘",
                 "🌸",
                 "💞"
+
             ];
 
 
