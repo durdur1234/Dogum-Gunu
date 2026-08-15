@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rabia'ya ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #fff1f5, #ffe4ec, #fff7f0);
+    color: #6b3045;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    padding: 45px 25px;
+    background: rgba(255,255,255,0.72);
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(160, 70, 100, 0.15);
+    backdrop-filter: blur(10px);
+    animation: appear 1.2s ease;
+}
+
+.heart {
+    font-size: 65px;
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 42px;
+    color: #c44770;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.age {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #a9365c;
+}
+
+button {
+    border: none;
+    padding: 16px 28px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #e85d87, #c93f68);
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(201,63,104,0.25);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#message {
+    display: none;
+    margin-top: 30px;
+    animation: appear 1s ease;
+}
+
+#message p {
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.signature {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #c44770;
+    font-weight: bold;
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    animation: floatUp 5s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 34px;
+    }
+
+    .card {
+        padding: 40px 20px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="heart">❤️</div>
+
+        <h1>İyi ki Doğdun Rabiş!</h1>
+
+        <div class="age">
+            🎂 21 yaşındasın! 🥳🎂
+        </div>
+
+        <p class="subtitle">
+            Bugün senin günün...<br>
+            Ve ben bu günü biraz daha özel yapmak istedim. 🥰
+        </p>
+
+        <button onclick="showMessage()">
+            🎁 Sana bir sürprizim var
+        </button>
+
+        <div id="message">
+
+            <p>
+                İyi ki doğdun balımmm. ❤️
+                <br><br>
+
+                Hayatıma girdiğin için gerçekten çok mutluyum.
+                Umarım yeni yaşında yüzünden gülümseme hiç eksik olmaz
+                ve bütün güzel şeyler seni bulur.
+                <br><br>
+
+                Bugün 21 oldun...
+                Ama benim için önemli olan sadece yaşın değil,
+                hayatımda olduğun her gün. ❤️
+                <br><br>
+
+                Yeni yaşında yanında olmayı,
+                birlikte daha çok güzel anı biriktirmeyi
+                ve seni daha çok güldürmeyi diliyorum.
+                <br><br>
+
+                İyi ki varsın canım ❤️
+                <br>
+                İyi ki doğdun.
+            </p>
+
+            <div class="signature">
+                🥳
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function showMessage() {
+
+    document.getElementById("message").style.display = "block";
+
+    createHearts();
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+function createHearts() {
+
+    for(let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+
+            const heart = document.createElement("div");
+
+            heart.className = "floating-heart";
+
+            const hearts = ["❤️","💕","💗","💖","💘","🌸"];
+
+            heart.innerHTML =
+                hearts[Math.floor(Math.random() * hearts.length)];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+
+        }, i * 120);
+    }
+}
+
+</script>
+
+</body>
+</html>
